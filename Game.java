@@ -63,7 +63,7 @@ public class Game {
             replaceCardButtons[i].setEnabled(true);
             Card card = player.getHand().get(i);
             String fileName = card.getFileName();
-            playerCardLabels[i].setIcon(new ImageIcon("Images/" + fileName));
+            playerCardLabels[i].setIcon(new ImageIcon(getClass().getResource("/Images/" + fileName)));
         }
 
         updateGUI();
@@ -81,7 +81,7 @@ public class Game {
         // Update the replaced card's image
         Card card = player.getHand().get(cardIndex);
         String fileName = card.getFileName();
-        playerCardLabels[cardIndex].setIcon(new ImageIcon("Images/" + fileName));
+        playerCardLabels[cardIndex].setIcon(new ImageIcon(getClass().getResource("/Images/" + fileName)));
         replaceCardButtons[cardIndex].setEnabled(false);
 
         updateGUI();
@@ -100,7 +100,7 @@ public class Game {
         for (int i = 0; i < dealerCardLabels.length; i++) {
             Card card = dealer.getHand().get(i);
             String fileName = card.getFileName();
-            dealerCardLabels[i].setIcon(new ImageIcon("Images/" + fileName));
+            dealerCardLabels[i].setIcon(new ImageIcon(getClass().getResource("/Images/" + fileName)));
         }
 
         if (playerSpecialCards > dealerSpecialCards) {
@@ -218,7 +218,7 @@ public class Game {
         Box actionBox = Box.createHorizontalBox();
         Box messageBox = Box.createHorizontalBox();
 
-        ImageIcon backsideImage = new ImageIcon("Images/back.gif");
+        ImageIcon backsideImage = new ImageIcon(getClass().getResource("/Images/back.gif"));
 
         // Initialize dealer's card labels
         for (int i = 0; i < dealerCardLabels.length; i++) {
@@ -305,8 +305,8 @@ public class Game {
 
         if (roundOver) {
             for (int i = 0; i < dealerCardLabels.length; i++) {
-                dealerCardLabels[i].setIcon(new ImageIcon("Images/" + "back.gif"));
-                playerCardLabels[i].setIcon(new ImageIcon("Images/" + "back.gif"));
+                dealerCardLabels[i].setIcon(new ImageIcon(getClass().getResource("/Images/back.gif")));
+                playerCardLabels[i].setIcon(new ImageIcon(getClass().getResource("/Images/back.gif")));
             }
             for (int i = 0; i < 3; i++) {
                 replaceCardButtons[i].setEnabled(false);
